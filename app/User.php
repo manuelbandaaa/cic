@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'age', 'cellphone', 'address', 'password', 'position_id',
     ];
 
     /**
@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relación muchos a muchos entre Usuario y Departamento.
+     */
+    public function position(){
+        return $this->belongsTo(Position::class);
+    }
 }

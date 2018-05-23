@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PortalController@inicio')->name('inicio');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Users
+Route::resource('users', 'AdminUsersController');
