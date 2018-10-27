@@ -149,7 +149,6 @@ return [
         'Collective\Html\HtmlServiceProvider',
         'Jenssegers\Date\DateServiceProvider',
         'JD\Cloudder\CloudderServiceProvider',
-        'Maatwebsite\Excel\ExcelServiceProvider',
 
         /*
          * Package Service Providers...
@@ -216,7 +215,6 @@ return [
         'Html' => 'Collective\Html\HtmlFacade',
         'Date' => Jenssegers\Date\Date::class,
         'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
-        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
     ],
 
 ];

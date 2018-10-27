@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Maatwebsite\Excel\Facades\Excel;
 
 class StudentsController extends Controller
 {
@@ -174,29 +173,4 @@ class StudentsController extends Controller
         return redirect()->action('StudentsController@list', $request->type);
     }
 
-    public function generate_excel()
-    {
-        $students = User::where('position_id', 3)->get();
-
-        $documentName = "IJAS ";
-
-        $xls_doc = Excel::load(public_path('IJAS.xlsx'));
-        $contador = 12;
-        foreach($students as $student){
-            $xls_doc->getActiveSheet()->setCellValue('A'.strval($contador), "EDUCATIVO");
-            $xls_doc->getActiveSheet()->setCellValue('B'.strval($contador), strval($contador-11));
-            $xls_doc->getActiveSheet()->setCellValue('C'.strval($contador), $student->name);
-            $xls_doc->getActiveSheet()->setCellValue('D'.strval($contador), $student->age);
-            $xls_doc->getActiveSheet()->setCellValue('E'.strval($contador), $student->address);
-            $xls_doc->getActiveSheet()->setCellValue('F'.strval($contador), $student->cellphone);
-            $contador++;
-        }
-
-        $xls_doc->getActiveSheet()->setCellValue('A'.strval($contador+2), "RESPONSABLE LEGAL");
-        $xls_doc->getActiveSheet()->setCellValue('D'.strval($contador+2), "DIRECTOR");
-        $xls_doc->getActiveSheet()->setCellValue('A'.strval($contador+3), "MARTHA BEATRIZ MEDINA CHIPRES");
-        $xls_doc->getActiveSheet()->setCellValue('D'.strval($contador+3), "M. CARMEN RODRIGUEZ GIL");
-
-        $xls_doc->setFilename($documentName)->export('xlsx');
-    }
 }
