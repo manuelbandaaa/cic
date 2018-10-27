@@ -8,11 +8,13 @@
 @endsection
 
 @section('actions')
+@if(\Auth::user()->position_id == 1)
 <div class="row">
     <div class="col-sm-12">
         <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Nuevo Usuario</a>
     </div>
 </div>
+@endif
 @endsection
 
 @section('content')
@@ -23,6 +25,7 @@
                 <h5>Información de Usuarios</h5>
             </div>
             <div class="ibox-content">
+                <div class="table-responsive">
                 @if(count($users) > 0)
                     <table class="table table-striped table-bordered" id="usuarios">
                         <thead>
@@ -40,6 +43,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
                 @else
                     <h1>No hay usuarios registrados</h1>
                 @endif

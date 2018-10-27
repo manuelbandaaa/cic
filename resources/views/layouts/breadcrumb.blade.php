@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
     <li>
-        <a href="{{ route('inicio') }}">Inicio</a>
+        <a href="{{ route('home') }}">Inicio</a>
     </li>
     @yield('breadcrumb')
     {{-- Ejemplo Breadcrumb --}}

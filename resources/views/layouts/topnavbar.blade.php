@@ -1,20 +1,16 @@
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
             {{-- <form role="search" class="navbar-form-custom" method="post" action="/"> --}}
                 {{-- <div class="form-group"> --}}
                     {{-- <input type="text" placeholder="Buscar..." class="form-control" name="top-search" id="top-search" /> --}}
                 {{-- </div> --}}
             {{-- </form> --}}
         </div>
-        <ul class="nav navbar-top-links navbar-right">
-            @if(\Auth::check())
-                
-            @endif
-
+        <ul class="nav navbar-top-links navbar-right pull-right">
             <li>
-                <button type="submit" class="btn btn-link" onclick="window.location.href='/ayuda'">
+                <button type="submit" class="btn btn-link" onclick="window.location.href='/introduction.html'">
                     <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="Ayuda"></span>
                 </button>  
             </li>
@@ -23,7 +19,7 @@
                 <li>
                     <form action="{{ url('/logout') }}" method="POST">
                         {!! csrf_field() !!}
-                        <button type="submit" class="btn btn-link">
+                        <button type="submit" class="btn btn-link btn-lg">
                             <i class="fa fa-sign-out"></i> Salir
                         </button>
                     </form>

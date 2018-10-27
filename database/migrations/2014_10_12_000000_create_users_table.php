@@ -21,6 +21,12 @@ class CreateUsersTable extends Migration
             $table->integer('age')->nullable();
             $table->string('cellphone')->nullable();
             $table->string('address')->nullable();
+            $table->string('degree')->nullable();
+            $table->string('career')->nullable();
+            $table->integer('level')->nullable();
+            $table->float('average')->nullable();
+            $table->float('score')->nullable();
+            $table->float('pay')->nullable();
             $table->integer('position_id');
             $table->rememberToken();
             $table->timestamps();

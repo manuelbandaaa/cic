@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'age', 'cellphone', 'address', 'password', 'position_id',
+        'name', 'email', 'age', 'cellphone', 'address', 'password', 'position_id', 'course_id', 'pay', 'average', 'career', 'degree', 'level'
     ];
 
     /**
@@ -31,6 +31,18 @@ class User extends Authenticatable
      * Relación muchos a muchos entre Usuario y Departamento.
      */
     public function position(){
-        return $this->belongsTo(Position::class);
+        return $this->belongsTo(Position::class, 'position_id');
+    }
+
+    public function planning(){
+        return $this->hasMany(Planning::class, 'user_id');
+    }
+
+    public function course(){
+        return $this->hasMany(Course::class, 'user_id');
+    }
+
+    public function reports(){
+        return $this->hasMany(Report::class, 'user_id');
     }
 }

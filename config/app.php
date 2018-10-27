@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Mexico_City',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -147,6 +147,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
+        'Jenssegers\Date\DateServiceProvider',
+        'JD\Cloudder\CloudderServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
         /*
          * Package Service Providers...
@@ -211,6 +214,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'Date' => Jenssegers\Date\Date::class,
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
     ],
 
 ];

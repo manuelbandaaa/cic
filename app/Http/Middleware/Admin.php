@@ -15,10 +15,10 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::user()position != 1) {
-            return redirect('/')
+        if(\Auth::user()->position_id != 1) {
+            return redirect('/home')
                 ->with([
-                    'message' => 'No se han asignado los derechos para ingresar a este módulo',
+                    'message' => 'No tienes los permisos para ingresar a este módulo',
                     'alert-class' => 'alert-info'
                 ]);
         }

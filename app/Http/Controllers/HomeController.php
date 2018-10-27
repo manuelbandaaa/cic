@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['only' => ['index']]);
     }
 
     /**
@@ -24,5 +24,30 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function contact()
+    {
+        return view('portal.contact');
+    }
+
+    public function in_progress()
+    {
+        return view('portal.in_progress');
+    }
+
+    public function info()
+    {
+        return view('portal.info');
+    }
+
+    public function manual()
+    {
+        return view('portal.manual');
+    }
+
+    public function scholarships()
+    {
+        return view('portal.scholarships');
     }
 }

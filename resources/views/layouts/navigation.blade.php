@@ -10,6 +10,7 @@
                                     <strong class="font-bold">
                                         {{ \Auth::user()->name }}
                                     </strong>
+                                </span> <span class="text-muted text-xs block">{{ \Auth::user()->position()->first()->name}} <b class="caret"></b></span>
                             </span>
                         </a>
 
@@ -22,10 +23,16 @@
                     CIC
                 </div>
             </li>
+            <li class="{{-- isActiveRoute('main') --}}">
+                <a href="/">
+                    <i class="fa fa-th-list"></i> <span class="nav-label">Inicio</span>
+                </a>
+            </li>
             @if(\Auth::check())
-                {{--@include('layouts.menuDep')--}}
                 @if(\Auth::user()->position()->first()->id < 3)
                     @include('layouts.menuAdmin')
+                @else
+                    @include('layouts.menuUser')
                 @endif
             @endif
         </ul>
